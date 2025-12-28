@@ -12,7 +12,7 @@
 📧 Email: adilishtiaq8040@gmail.com  
 📱 WhatsApp: +92 321 4621709  
 🔗 LinkedIn: https://www.linkedin.com/in/adil-ishtiaq-651287327  
-📄 Resume: [Download PDF](Adil CV.pdf)
+📄 Resume: [Download CV](Adil%20CV.pdf)
 
 
 ---
@@ -21,6 +21,14 @@
 I am a results-driven WordPress and Shopify developer with 2–3 years of hands-on experience in building high-performance websites. I specialize in clean UI, speed optimization, and user-focused design that helps businesses convert visitors into customers.
 
 I have worked on service websites, educational platforms, eCommerce stores, and custom WordPress solutions, focusing on reliability, scalability, and ease of use.
+
+---
+
+## 🎯 What I Bring to a Team
+- Strong understanding of WordPress & Shopify ecosystems
+- Performance-focused development mindset
+- Clean, maintainable, and scalable solutions
+- Reliable communication and on-time delivery
 
 ---
 
