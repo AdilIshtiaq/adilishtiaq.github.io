@@ -12,6 +12,8 @@
 📧 Email: adilishtiaq8040@gmail.com  
 📱 WhatsApp: +92 321 4621709  
 🔗 LinkedIn: https://www.linkedin.com/in/adil-ishtiaq-651287327  
+📄 Resume: [Download PDF](Adil CV.pdf)
+
 
 ---
 
