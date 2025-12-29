@@ -797,24 +797,192 @@
 
         /* Responsive */
         @media (max-width: 1200px) {
-            .hero-grid { grid-template-columns: 1fr; gap: 4rem; }
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
-            .projects-grid { grid-template-columns: 1fr; }
+            .hero-grid { 
+                grid-template-columns: 1fr; 
+                gap: 4rem; 
+                text-align: center;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .services-grid { 
+                grid-template-columns: repeat(2, 1fr); 
+            }
+            .projects-grid { 
+                grid-template-columns: 1fr; 
+            }
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
-            .nav-container { padding: 0 1.5rem; }
-            .nav-links { display: none; }
-            .hero { padding: 6rem 1.5rem 4rem; }
-            .hero-content h1 { font-size: 2.5rem; }
-            .hero-stats { flex-direction: column; gap: 1.5rem; }
-            .hero-buttons { flex-direction: column; width: 100%; }
-            .btn { width: 100%; justify-content: center; }
-            section { padding: 4rem 1.5rem; }
-            .section-title { font-size: 2rem; }
-            .services-grid { grid-template-columns: 1fr; }
-            .contact-grid { grid-template-columns: 1fr; }
-            .contact-section { border-radius: 20px; padding: 3rem 2rem; }
+            .nav-container { 
+                padding: 0 1.5rem; 
+            }
+            .nav-links { 
+                display: none; 
+            }
+            
+            .hero { 
+                padding: 6rem 1.5rem 4rem; 
+                min-height: auto;
+            }
+            
+            .hero-grid {
+                gap: 3rem;
+            }
+            
+            .hero-content h1 { 
+                font-size: 2.5rem; 
+                letter-spacing: -1px;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-stats { 
+                flex-direction: column; 
+                gap: 1.5rem; 
+                align-items: center;
+            }
+            
+            .stat-item {
+                text-align: center;
+            }
+            
+            .hero-buttons { 
+                flex-direction: column; 
+                width: 100%; 
+            }
+            
+            .btn { 
+                width: 100%; 
+                justify-content: center; 
+                padding: 1rem 1.5rem;
+            }
+            
+            .floating-card {
+                padding: 2rem;
+            }
+            
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            section { 
+                padding: 4rem 1.5rem; 
+            }
+            
+            .section-title { 
+                font-size: 2.2rem; 
+                letter-spacing: -0.5px;
+            }
+            
+            .section-description {
+                font-size: 1rem;
+            }
+            
+            .services-grid { 
+                grid-template-columns: 1fr; 
+                gap: 1.5rem;
+            }
+            
+            .service-card {
+                padding: 2rem;
+            }
+            
+            .projects-grid {
+                gap: 2rem;
+            }
+            
+            .project-image {
+                height: 200px;
+            }
+            
+            .project-content {
+                padding: 1.5rem;
+            }
+            
+            .project-title {
+                font-size: 1.4rem;
+            }
+            
+            .contact-grid { 
+                grid-template-columns: 1fr; 
+                gap: 1rem;
+            }
+            
+            .contact-section { 
+                border-radius: 20px; 
+                padding: 3rem 1.5rem; 
+            }
+            
+            .contact-section h2 {
+                font-size: 2rem;
+            }
+            
+            .contact-section p {
+                font-size: 1rem;
+            }
+            
+            .scroll-indicator {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.2rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .section-label {
+                font-size: 0.75rem;
+                padding: 0.4rem 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .service-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+            
+            .service-title {
+                font-size: 1.3rem;
+            }
+            
+            .project-title {
+                font-size: 1.2rem;
+            }
+            
+            .contact-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
