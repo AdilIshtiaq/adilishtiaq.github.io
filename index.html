@@ -111,10 +111,6 @@ body.ch .cur-dot{transform:translate(-50%,-50%) scale(0)}
 .h-frame::before,.h-frame::after{content:'';position:absolute;width:22px;height:22px;border-color:var(--accent);border-style:solid;z-index:3}
 .h-frame::before{top:12px;left:12px;border-width:2px 0 0 2px}
 .h-frame::after{bottom:12px;right:12px;border-width:0 2px 2px 0}
-.photo-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:40px}
-.photo-ph-circle{width:96px;height:96px;border-radius:50%;background:var(--paper-3);display:flex;align-items:center;justify-content:center;font-size:2.4rem}
-.photo-ph-text{text-align:center;font-size:.75rem;color:var(--ink-3);line-height:1.65}
-.photo-ph-text strong{display:block;color:var(--accent);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
 .badge-f{position:absolute;background:var(--white);border:1px solid var(--paper-3);box-shadow:0 8px 28px rgba(0,0,0,.1);padding:11px 15px;display:flex;align-items:center;gap:9px;border-radius:2px;font-size:.78rem;font-weight:600;color:var(--ink);white-space:nowrap}
 .badge-f .bf-i{font-size:1.1rem}
 .badge-f .bf-s{display:block;font-size:.65rem;font-weight:400;color:var(--ink-3)}
@@ -193,15 +189,9 @@ body.ch .cur-dot{transform:translate(-50%,-50%) scale(0)}
 .pc:nth-child(1){grid-column:1/8}.pc:nth-child(2){grid-column:8/13}
 .pc:nth-child(3){grid-column:1/5}.pc:nth-child(4){grid-column:5/13}
 .pc-img{width:100%;aspect-ratio:16/10;overflow:hidden;position:relative}
-.pc-img-in{width:100%;height:100%;transition:transform .8s var(--ease-out);display:flex;align-items:center;justify-content:center}
+.pc-img-in{width:100%;height:100%;transition:transform .8s var(--ease-out)}
+.pc-img-in img{width:100%;height:100%;object-fit:cover;object-position:top}
 .pc:hover .pc-img-in{transform:scale(1.05)}
-.pc-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:24px}
-.pc-ph-i{font-size:2.6rem;opacity:.45}
-.pc-ph-l{font-size:.7rem;color:var(--ink-3);text-align:center;opacity:.55;line-height:1.5}
-.pc:nth-child(1) .pc-ph{background:linear-gradient(135deg,#eae6df,#d5cfc5)}
-.pc:nth-child(2) .pc-ph{background:linear-gradient(135deg,#dfe4e5,#c8d1d2)}
-.pc:nth-child(3) .pc-ph{background:linear-gradient(135deg,#e5e0da,#d2c9be)}
-.pc:nth-child(4) .pc-ph{background:linear-gradient(135deg,#e2ddd8,#cdc5ba)}
 .pc-ov{position:absolute;inset:0;background:var(--ink);opacity:0;transition:opacity .4s;display:flex;align-items:center;justify-content:center;z-index:2}
 .pc:hover .pc-ov{opacity:.6}
 .pc-ov-btn{color:var(--paper);font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(255,255,255,.35);padding:10px 20px;opacity:0;transform:translateY(10px);transition:opacity .3s .1s,transform .3s .1s}
@@ -373,24 +363,9 @@ footer{background:#0a0a08;border-top:1px solid rgba(255,255,255,.06);padding:26p
         </div>
         <div class="h-photo" data-r data-d="2">
           <div class="h-frame">
-           
-            <!--
-            ╔══════════════════════════════════════════════╗
-            ║  REPLACE THIS ENTIRE DIV WITH YOUR PHOTO:   ║
-            ║                                              ║
-            ║  <img src="adil.jpg"                        ║
-            ║       alt="Adil Ishtiaq"                    ║
-            ║       style="width:100%;height:100%;        ║
-            ║       object-fit:cover;object-position:top"> ║
-            ╚══════════════════════════════════════════════╝
-            -->
-            <div class="photo-ph">
-              <div class="photo-ph-circle">🧑‍💻</div>
-              <div class="photo-ph-text">
-                <strong>→ Place Your Photo Here</strong>
-                Replace this block with an &lt;img&gt; tag.<br>Use object-fit:cover for best results.
-              </div>
-            </div>
+            <img src="https://raw.githubusercontent.com/AdilIshtiaq/adilishtiaq.github.io/main/adil.jpg"
+                 alt="Adil Ishtiaq — WordPress Developer & Web Designer"
+                 style="width:100%;height:100%;object-fit:cover;object-position:top">
           </div>
           <div class="badge-f bf-top">
             <span class="bf-i">⭐</span>
@@ -532,75 +507,71 @@ footer{background:#0a0a08;border-top:1px solid rgba(255,255,255,.06);padding:26p
       <p class="body-t" data-r data-d="2" style="max-width:320px;text-align:right">Real projects, real results — from concept through launch.</p>
     </div>
     <div class="proj-grid">
-      <!-- P1 wide -->
+
+      <!-- P1 wide — Figma to Elementor -->
       <div class="pc" data-r>
         <div class="pc-img">
           <div class="pc-img-in">
-            <!--
-              REPLACE WITH:
-              <img src="project-1.jpg" alt="Business Website" style="width:100%;height:100%;object-fit:cover">
-            -->
-            <div class="pc-ph"><span class="pc-ph-i">🏢</span><div class="pc-ph-l">Replace with project screenshot<br>project-business.jpg</div></div>
+            <img src="https://raw.githubusercontent.com/AdilIshtiaq/adilishtiaq.github.io/main/Custom%20Elementor%20websites%20built%20from%20Figma.jpg"
+                 alt="Custom Elementor Websites Built from Figma">
           </div>
-          <div class="pc-ov"><div class="pc-ov-btn">View Case Study →</div></div>
+          <div class="pc-ov"><div class="pc-ov-btn">View Project →</div></div>
         </div>
         <div class="pc-body">
-          <div class="pc-tags"><span class="pt">WordPress</span><span class="pt">Elementor</span><span class="pt">SEO</span><span class="pt">Lead Gen</span></div>
-          <h3 class="pc-title">Corporate Business Website</h3>
-          <p class="pc-desc">Multi-page corporate site with custom WordPress theme, advanced contact forms, Google Maps integration, and full mobile optimization. Delivered 40% increase in lead enquiries within 60 days of launch.</p>
+          <div class="pc-tags"><span class="pt">WordPress</span><span class="pt">Elementor Pro</span><span class="pt">Figma</span><span class="pt">Pixel-Perfect</span></div>
+          <h3 class="pc-title">Custom Elementor Websites Built from Figma</h3>
+          <p class="pc-desc">End-to-end Figma-to-WordPress workflow — translating high-fidelity design mockups into fully responsive, pixel-perfect Elementor builds. Every section, spacing, and animation matched to the original design spec.</p>
         </div>
       </div>
-      <!-- P2 -->
+
+      <!-- P2 — IT & Software Company -->
       <div class="pc" data-r data-d="1">
         <div class="pc-img">
           <div class="pc-img-in">
-            <!--
-              <img src="project-2.jpg" alt="Landing Page" style="width:100%;height:100%;object-fit:cover">
-            -->
-            <div class="pc-ph"><span class="pc-ph-i">🚀</span><div class="pc-ph-l">Replace with project screenshot<br>project-landing.jpg</div></div>
+            <img src="https://raw.githubusercontent.com/AdilIshtiaq/adilishtiaq.github.io/main/ElementorWordPress%20Site%20for%20Professional%20IT%20%26%20Software%20Company.png"
+                 alt="Elementor WordPress Site for Professional IT & Software Company">
           </div>
-          <div class="pc-ov"><div class="pc-ov-btn">View Case Study →</div></div>
+          <div class="pc-ov"><div class="pc-ov-btn">View Project →</div></div>
         </div>
         <div class="pc-body">
-          <div class="pc-tags"><span class="pt">Landing Page</span><span class="pt">WordPress</span><span class="pt">CRO</span></div>
-          <h3 class="pc-title">High-Converting Landing Page</h3>
-          <p class="pc-desc">Single-page built for a SaaS product — strategic copy layout, trust signals, and A/B test-ready structure for maximum conversions.</p>
+          <div class="pc-tags"><span class="pt">WordPress</span><span class="pt">Elementor</span><span class="pt">IT & Tech</span><span class="pt">Corporate</span></div>
+          <h3 class="pc-title">IT &amp; Software Company Website</h3>
+          <p class="pc-desc">Professional multi-page corporate site for an IT &amp; software firm — service pages, team section, case studies, and custom contact forms. Built for credibility, clarity, and client acquisition.</p>
         </div>
       </div>
-      <!-- P3 -->
+
+      <!-- P3 — Roofing Company -->
       <div class="pc" data-r data-d="2">
         <div class="pc-img">
           <div class="pc-img-in">
-            <!--
-              <img src="project-3.jpg" alt="Booking Website" style="width:100%;height:100%;object-fit:cover">
-            -->
-            <div class="pc-ph"><span class="pc-ph-i">📅</span><div class="pc-ph-l">Replace with project screenshot<br>project-booking.jpg</div></div>
+            <img src="https://raw.githubusercontent.com/AdilIshtiaq/adilishtiaq.github.io/main/Highly%20Responsive%20WordPress%20%20Elementor%20Site%20for%20a%20Roofing%20Company.jpg"
+                 alt="Highly Responsive WordPress Elementor Site for a Roofing Company">
           </div>
-          <div class="pc-ov"><div class="pc-ov-btn">View Case Study →</div></div>
+          <div class="pc-ov"><div class="pc-ov-btn">View Project →</div></div>
         </div>
         <div class="pc-body">
-          <div class="pc-tags"><span class="pt">WooCommerce</span><span class="pt">Booking</span><span class="pt">WordPress</span></div>
-          <h3 class="pc-title">Online Booking Website</h3>
-          <p class="pc-desc">Appointment scheduling with real-time booking calendar, Stripe payments, and automated email confirmations.</p>
+          <div class="pc-tags"><span class="pt">WordPress</span><span class="pt">Elementor</span><span class="pt">Local SEO</span><span class="pt">Lead Gen</span></div>
+          <h3 class="pc-title">Roofing Company Website</h3>
+          <p class="pc-desc">Highly responsive WordPress site for a roofing contractor — service areas, project gallery, trust signals, and click-to-call CTAs optimized for local search and mobile-first lead generation.</p>
         </div>
       </div>
-      <!-- P4 wide -->
+
+      <!-- P4 wide — Tax & Advisory Firm -->
       <div class="pc" data-r data-d="1">
         <div class="pc-img">
           <div class="pc-img-in">
-            <!--
-              <img src="project-4.jpg" alt="Blog Website" style="width:100%;height:100%;object-fit:cover">
-            -->
-            <div class="pc-ph"><span class="pc-ph-i">✍️</span><div class="pc-ph-l">Replace with project screenshot<br>project-blog.jpg</div></div>
+            <img src="https://raw.githubusercontent.com/AdilIshtiaq/adilishtiaq.github.io/main/Highly%20Responsive%20WordPress%20Website%20for%20a%20Tax%20and%20Advisory%20Firm.png"
+                 alt="Highly Responsive WordPress Website for a Tax and Advisory Firm">
           </div>
-          <div class="pc-ov"><div class="pc-ov-btn">View Case Study →</div></div>
+          <div class="pc-ov"><div class="pc-ov-btn">View Project →</div></div>
         </div>
         <div class="pc-body">
-          <div class="pc-tags"><span class="pt">Blog</span><span class="pt">SEO</span><span class="pt">WordPress</span><span class="pt">Performance</span></div>
-          <h3 class="pc-title">SEO-Optimized Blog Website</h3>
-          <p class="pc-desc">Content-first blog built around Yoast SEO, schema markup, category filtering, newsletter integration, and sub-2-second load times. Ranked page 1 for 8 target keywords within 90 days.</p>
+          <div class="pc-tags"><span class="pt">WordPress</span><span class="pt">Finance</span><span class="pt">SEO</span><span class="pt">Professional</span></div>
+          <h3 class="pc-title">Tax &amp; Advisory Firm Website</h3>
+          <p class="pc-desc">Clean, authoritative WordPress site for a tax and financial advisory firm — service breakdowns, team profiles, FAQ schema, and on-page SEO setup. Designed to build trust and convert high-value clients.</p>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -687,71 +658,64 @@ footer{background:#0a0a08;border-top:1px solid rgba(255,255,255,.06);padding:26p
           <div class="ci-row"><div class="ci-ico">⏱️</div><div><div class="ci-lbl">Response Time</div><div class="ci-val">Within 24 hours</div></div></div>
         </div>
         <div class="soc-row" data-r data-d="4">
-          <a href="www.linkedin.com/in/adil-ishtiaq-651287327" class="sob" aria-label="LinkedIn">Li</a>
-          <a href="https://wa.me/message/2MT2JFO63P3LA1" class="sob" aria-label="whatsapp">WA</a>
+          <a href="https://www.linkedin.com/in/adil-ishtiaq-651287327" class="sob" aria-label="LinkedIn">Li</a>
+          <a href="https://wa.me/message/2MT2JFO63P3LA1" class="sob" aria-label="WhatsApp">WA</a>
           <a href="https://github.com/AdilIshtiaq" class="sob" aria-label="GitHub">Gh</a>
           <a href="https://www.instagram.com/ad1l_x_?igsh=MTVwOHNoNGptMGM0bg==" class="sob" aria-label="Instagram">Ig</a>
         </div>
       </div>
       <form class="ct-form" action="https://formsubmit.co/adilishtiaq8040@gmail.com" method="POST" data-r data-d="2">
-
-  <input type="hidden" name="_subject" value="New Message from Portfolio Website">
-  <input type="hidden" name="_captcha" value="false">
-
-  <div class="fr2">
-    <div class="fg">
-      <label>Full Name</label>
-      <input type="text" name="name" placeholder="John Doe" required>
-    </div>
-    <div class="fg">
-      <label>Email Address</label>
-      <input type="email" name="email" placeholder="john@company.com" required>
-    </div>
-  </div>
-
-  <div class="fr2">
-    <div class="fg">
-      <label>Phone / WhatsApp</label>
-      <input type="tel" name="phone" placeholder="+1 000 000 0000">
-    </div>
-    <div class="fg">
-      <label>Budget Range</label>
-      <select name="budget" required>
-        <option value="" disabled selected>Select budget...</option>
-        <option>Under $300</option>
-        <option>$300 – $600</option>
-        <option>$600 – $1,200</option>
-        <option>$1,200 – $2,500</option>
-        <option>$2,500+</option>
-      </select>
-    </div>
-  </div>
-
-  <div class="fg">
-    <label>Service Needed</label>
-    <select name="service" required>
-      <option value="" disabled selected>What can I help you with?</option>
-      <option>WordPress Website Development</option>
-      <option>Landing Page Design</option>
-      <option>Website Redesign</option>
-      <option>Graphic Design & Branding</option>
-      <option>On-Page SEO Optimization</option>
-      <option>Digital Marketing Support</option>
-      <option>Full Package</option>
-    </select>
-  </div>
-
-  <div class="fg">
-    <label>Project Details</label>
-    <textarea name="message" placeholder="Tell me about your project..." required></textarea>
-  </div>
-
-  <button type="submit" class="btn btn-acc" style="align-self:flex-start;padding:15px 38px;font-size:.8rem">
-    <span>Send Message</span>
-    <span class="arr">→</span>
-  </button>
-
-</form>
+        <input type="hidden" name="_subject" value="New Message from Portfolio Website">
+        <input type="hidden" name="_captcha" value="false">
+        <div class="fr2">
+          <div class="fg">
+            <label>Full Name</label>
+            <input type="text" name="name" placeholder="John Doe" required>
+          </div>
+          <div class="fg">
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="john@company.com" required>
+          </div>
+        </div>
+        <div class="fr2">
+          <div class="fg">
+            <label>Phone / WhatsApp</label>
+            <input type="tel" name="phone" placeholder="+1 000 000 0000">
+          </div>
+          <div class="fg">
+            <label>Budget Range</label>
+            <select name="budget" required>
+              <option value="" disabled selected>Select budget...</option>
+              <option>Under $300</option>
+              <option>$300 – $600</option>
+              <option>$600 – $1,200</option>
+              <option>$1,200 – $2,500</option>
+              <option>$2,500+</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg">
+          <label>Service Needed</label>
+          <select name="service" required>
+            <option value="" disabled selected>What can I help you with?</option>
+            <option>WordPress Website Development</option>
+            <option>Landing Page Design</option>
+            <option>Website Redesign</option>
+            <option>Graphic Design & Branding</option>
+            <option>On-Page SEO Optimization</option>
+            <option>Digital Marketing Support</option>
+            <option>Full Package</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Project Details</label>
+          <textarea name="message" placeholder="Tell me about your project..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-acc" style="align-self:flex-start;padding:15px 38px;font-size:.8rem">
+          <span>Send Message</span>
+          <span class="arr">→</span>
+        </button>
+      </form>
     </div>
   </div>
 </section>
@@ -760,7 +724,7 @@ footer{background:#0a0a08;border-top:1px solid rgba(255,255,255,.06);padding:26p
 <footer>
   <div class="wrap ft-row">
     <div class="ft-logo">Adil <span>Ishtiaq</span></div>
-    <div class="ft-copy">© 2024 Adil Ishtiaq · All rights reserved · Lahore, Pakistan</div>
+    <div class="ft-copy">© 2025 Adil Ishtiaq · All rights reserved · Lahore, Pakistan</div>
     <nav class="ft-nav">
       <a href="#about">About</a>
       <a href="#portfolio">Work</a>
