@@ -201,7 +201,10 @@ body.ch .cur-dot{transform:translate(-50%,-50%) scale(0)}
 .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
 .pc{position:relative;overflow:hidden;border-radius:12px;border:1px solid var(--line);background:var(--paper-2);box-shadow:0 20px 50px -25px rgba(0,0,0,.6)}
 .pc:hover{box-shadow:0 30px 70px -20px rgba(139,107,255,.28)}
-.pc-mock{position:relative;aspect-ratio:16/11;overflow:hidden;display:flex;flex-direction:column;transform:translateZ(20px)}
+.pc-mock{position:relative;aspect-ratio:16/11;overflow:hidden;display:flex;flex-direction:column;transform:translateZ(20px);background:#050507}
+.pc-mock.shot img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .6s var(--ease-out)}
+.pc:hover .pc-mock.shot img{transform:scale(1.04)}
+.pc-mock.shot .pc-tag-fl{top:14px;right:14px}
 .pc-chrome{display:flex;align-items:center;gap:8px;padding:10px 14px;background:rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.06)}
 .pc-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25)}
 .pc-url{margin-left:8px;font-size:.62rem;color:rgba(255,255,255,.5);background:rgba(255,255,255,.06);padding:3px 10px;border-radius:100px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -535,9 +538,9 @@ footer{background:#030304;border-top:1px solid var(--line);padding:26px 0}
 
       <!-- Devziner Studio -->
       <a href="https://devzinerstudio.com/" target="_blank" rel="noopener" class="pc tilt" data-r style="display:block">
-        <div class="pc-mock">
-          <div class="pc-chrome"><span class="pc-dot"></span><span class="pc-dot"></span><span class="pc-dot"></span><span class="pc-url">devzinerstudio.com</span></div>
-          <div class="pc-art pc-devziner"><span class="pc-tag-fl">Live Site</span><div class="pc-word">Devziner<br>Studio</div></div>
+        <div class="pc-mock shot">
+          <img src="devziner-studio.jpg" alt="Devziner Studio website shown on a laptop and tablet" loading="lazy">
+          <span class="pc-tag-fl">Live Site</span>
         </div>
         <div class="pc-body">
           <div class="pc-tags"><span class="pt">Web Design</span><span class="pt">UI/UX</span><span class="pt">Branding</span><span class="pt">Web &amp; App Dev</span></div>
@@ -549,9 +552,9 @@ footer{background:#030304;border-top:1px solid var(--line);padding:26px 0}
 
       <!-- Sharjah Optical -->
       <a href="https://sharjahoptical.online/" target="_blank" rel="noopener" class="pc tilt" data-r data-d="1" style="display:block">
-        <div class="pc-mock">
-          <div class="pc-chrome"><span class="pc-dot"></span><span class="pc-dot"></span><span class="pc-dot"></span><span class="pc-url">sharjahoptical.online</span></div>
-          <div class="pc-art pc-sharjah"><span class="pc-tag-fl">Live Site</span><div class="pc-word">Sharjah<br>Optical</div></div>
+        <div class="pc-mock shot">
+          <img src="sharjah-optical.jpg" alt="Sharjah Optical website shown on a desktop monitor and laptop" loading="lazy">
+          <span class="pc-tag-fl">Live Site</span>
         </div>
         <div class="pc-body">
           <div class="pc-tags"><span class="pt">WordPress</span><span class="pt">WooCommerce</span><span class="pt">E-Commerce</span><span class="pt">WhatsApp Orders</span></div>
@@ -563,9 +566,9 @@ footer{background:#030304;border-top:1px solid var(--line);padding:26px 0}
 
       <!-- Hurmat Group of Industries -->
       <a href="https://hurmatindustries.com/" target="_blank" rel="noopener" class="pc tilt" data-r data-d="2" style="display:block">
-        <div class="pc-mock">
-          <div class="pc-chrome"><span class="pc-dot"></span><span class="pc-dot"></span><span class="pc-dot"></span><span class="pc-url">hurmatindustries.com</span></div>
-          <div class="pc-art pc-hurmat"><span class="pc-tag-fl">Live Site</span><div class="pc-word">Hurmat Group<br>of Industries</div></div>
+        <div class="pc-mock shot">
+          <img src="hurmat-industries.jpg" alt="Hurmat Group of Industries website shown on a desktop monitor and laptop" loading="lazy">
+          <span class="pc-tag-fl">Live Site</span>
         </div>
         <div class="pc-body">
           <div class="pc-tags"><span class="pt">WordPress</span><span class="pt">Corporate</span><span class="pt">Healthcare</span><span class="pt">Product Catalog</span></div>
