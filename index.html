@@ -270,9 +270,11 @@ body.ch .cur-dot{transform:translate(-50%,-50%) scale(0)}
 .svc-tags{display:flex;gap:8px;flex-wrap:wrap}
 .stag{font-size:.68rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:6px 13px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--ink-2);border-radius:100px}
 .svc-panel{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#050506;box-shadow:0 40px 90px -30px rgba(0,0,0,.6)}
-.svc-panel-art{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,var(--paper-3),var(--paper-2));position:relative}
-.svc-panel-art::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 25% 20%,rgba(255,255,255,.08),transparent 45%)}
-.svc-panel-glyph{position:relative;z-index:1;font-family:var(--ff-serif);font-weight:700;font-size:3rem;color:var(--ink-2);letter-spacing:-.01em;transition:opacity .28s var(--ease-out)}
+.svc-panel-art{aspect-ratio:4/3;position:relative;overflow:hidden;background:linear-gradient(160deg,var(--paper-3),var(--paper-2))}
+.svc-panel-art::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,6,.05),rgba(5,5,6,.6) 88%)}
+.svc-panel-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .35s var(--ease-out)}
+.svc-panel-img.fading{opacity:0}
+.svc-panel-glyph{position:absolute;bottom:16px;left:18px;z-index:1;font-family:var(--ff-serif);font-weight:700;font-size:1rem;color:var(--ink);letter-spacing:-.01em;background:rgba(5,5,6,.55);border:1px solid var(--line);padding:6px 14px;border-radius:100px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:opacity .28s var(--ease-out)}
 .svc-panel-glyph.fading{opacity:0}
 .svc-panel-meta{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-top:1px solid var(--line)}
 .svc-panel-label{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
@@ -403,7 +405,7 @@ footer{background:#050506;border-top:1px solid var(--line);padding-top:70px;posi
     <div class="nav-in">
       <a href="#" class="nav-brand">
         <span class="nav-avatar-wrap">
-          <img src="https://raw.githubusercontent.com/AdilIshtiaq/adilishtiaq.github.io/main/adil.jpg" alt="Adil Ishtiaq" class="nav-avatar">
+          <img src="https://raw.githubusercontent.com/AdilIshtiaq/adilishtiaq.github.io/main/adil.png" alt="Adil Ishtiaq" class="nav-avatar">
           <span class="nav-avatar-dot" title="Available for new projects"></span>
         </span>
         <span>
@@ -936,7 +938,10 @@ footer{background:#050506;border-top:1px solid var(--line);padding-top:70px;posi
         <div class="svc-right">
           <div class="svc-panel">
             <div class="pc-chrome"><span class="pc-dot"></span><span class="pc-dot"></span><span class="pc-dot"></span><span class="pc-url">system.preview</span></div>
-            <div class="svc-panel-art"><span class="svc-panel-glyph" id="svcGlyph">&lt;/&gt;</span></div>
+            <div class="svc-panel-art">
+              <img class="svc-panel-img" id="svcImg" src="svc-fullstack.jpg" alt="" loading="lazy">
+              <span class="svc-panel-glyph" id="svcGlyph">&lt;/&gt;</span>
+            </div>
           </div>
           <div class="svc-panel-meta">
             <span class="svc-panel-label">System Preview</span>
@@ -1199,12 +1204,12 @@ document.querySelectorAll('.sk-row').forEach(row=>{
 
 /* ----- Services: pinned scroll-driven single-service display ----- */
 const SERVICES = [
-  {title:'Full-Stack Web Development', desc:'Complete web applications built with Next.js, FastAPI, and Python — REST APIs, authentication, and data workflows included from the start.', tags:['Next.js','FastAPI','Python'], glyph:'</>'},
-  {title:'WordPress Development', desc:'Custom themes and Elementor builds with clean handovers — responsive design, performance tuning, and security hardening as standard.', tags:['WordPress','Elementor','PHP'], glyph:'WP'},
-  {title:'API Integration & Backend Systems', desc:'REST API design and third-party integrations that connect your frontend to the data and services it actually depends on.', tags:['REST APIs','Auth','Integrations'], glyph:'API'},
-  {title:'Landing Page & Marketing Sites', desc:'Single-page builds structured around one offer — headline, proof, and call-to-action, designed with intent to convert.', tags:['CRO','WordPress','Figma'], glyph:'LP'},
-  {title:'Website Redesign & Optimization', desc:'Modernize an outdated site without losing what already works — audited first, then rebuilt on a faster, cleaner foundation.', tags:['Performance','SEO','UX'], glyph:'RX'},
-  {title:'Automation & AI-Assisted Development', desc:'AI-assisted workflows and automation used deliberately — to ship faster without cutting corners on quality or review.', tags:['Automation','Claude Code','Git'], glyph:'AI'}
+  {title:'Full-Stack Web Development', desc:'Complete web applications built with Next.js, FastAPI, and Python — REST APIs, authentication, and data workflows included from the start.', tags:['Next.js','FastAPI','Python'], glyph:'</>', img:'svc-fullstack.jpg'},
+  {title:'WordPress Development', desc:'Custom themes and Elementor builds with clean handovers — responsive design, performance tuning, and security hardening as standard.', tags:['WordPress','Elementor','PHP'], glyph:'WP', img:'svc-wordpress.jpg'},
+  {title:'API Integration & Backend Systems', desc:'REST API design and third-party integrations that connect your frontend to the data and services it actually depends on.', tags:['REST APIs','Auth','Integrations'], glyph:'API', img:'svc-api.jpg'},
+  {title:'Landing Page & Marketing Sites', desc:'Single-page builds structured around one offer — headline, proof, and call-to-action, designed with intent to convert.', tags:['CRO','WordPress','Figma'], glyph:'LP', img:'svc-landing.jpg'},
+  {title:'Website Redesign & Optimization', desc:'Modernize an outdated site without losing what already works — audited first, then rebuilt on a faster, cleaner foundation.', tags:['Performance','SEO','UX'], glyph:'RX', img:'svc-redesign.jpg'},
+  {title:'Automation & AI-Assisted Development', desc:'AI-assisted workflows and automation used deliberately — to ship faster without cutting corners on quality or review.', tags:['Automation','Claude Code','Git'], glyph:'AI', img:'svc-automation.jpg'}
 ];
 const svcPinOuter = document.getElementById('svcPinOuter');
 if (svcPinOuter) {
@@ -1215,6 +1220,7 @@ if (svcPinOuter) {
   const svcDesc = document.getElementById('svcDesc');
   const svcTagsRow = document.getElementById('svcTagsRow');
   const svcGlyph = document.getElementById('svcGlyph');
+  const svcImg = document.getElementById('svcImg');
   const svcPanelName = document.getElementById('svcPanelName');
   const svcProgressBar = document.getElementById('svcProgressBar');
   let currentIdx = -1;
@@ -1226,6 +1232,8 @@ if (svcPinOuter) {
     svcDesc.textContent = s.desc;
     svcTagsRow.innerHTML = s.tags.map(t=>`<span class="stag">${t}</span>`).join('');
     svcGlyph.textContent = s.glyph;
+    svcImg.src = s.img;
+    svcImg.alt = s.title + ' — system preview';
     svcPanelName.textContent = s.title;
   }
   renderService(0);
@@ -1251,11 +1259,13 @@ if (svcPinOuter) {
       } else {
         svcText.classList.add('fading');
         svcGlyph.classList.add('fading');
+        svcImg.classList.add('fading');
         svcPanelName.classList.add('fading');
         setTimeout(()=>{
           renderService(idx);
           svcText.classList.remove('fading');
           svcGlyph.classList.remove('fading');
+          svcImg.classList.remove('fading');
           svcPanelName.classList.remove('fading');
         },180);
       }
