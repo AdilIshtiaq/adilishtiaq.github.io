@@ -81,19 +81,24 @@ body.ch .cur-dot{transform:translate(-50%,-50%) scale(0)}
 .arr{display:inline-block;transition:transform .3s var(--ease-out)}.btn:hover .arr{transform:translateX(4px)}
 
 /* ============================================= NAV */
-#nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:24px 0;transition:background .4s,box-shadow .4s,padding .4s}
-#nav.sc{background:rgba(10,11,13,.8);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--line);padding:15px 0}
+#nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:22px 0;transition:background .4s,box-shadow .4s,padding .4s;border-bottom:1px solid transparent}
+#nav.sc{background:rgba(10,11,13,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 1px 0 var(--line);padding:14px 0;border-bottom-color:var(--line)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;position:relative}
-.nav-brand{display:flex;align-items:center;gap:11px}
-.nav-avatar{width:38px;height:38px;border-radius:50%;object-fit:cover;object-position:top;border:1.5px solid var(--line);flex-shrink:0}
-.nav-logo{font-family:var(--ff-serif);font-size:1.4rem;font-weight:600;color:var(--ink)}
+.nav-brand{display:flex;align-items:center;gap:12px}
+.nav-avatar-wrap{position:relative;flex-shrink:0}
+.nav-avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:top;border:1.5px solid var(--line);display:block;transition:border-color .3s}
+.nav-brand:hover .nav-avatar{border-color:var(--accent-hi)}
+.nav-avatar-dot{position:absolute;bottom:-1px;right:-1px;width:11px;height:11px;border-radius:50%;background:var(--accent-hi);border:2px solid var(--paper);animation:hpulse 2s infinite}
+.nav-logo{font-family:var(--ff-serif);font-size:1.4rem;font-weight:600;color:var(--ink);line-height:1.15}
 .nav-logo em{font-style:normal;color:var(--accent-hi)}
-.nav-links{display:flex;gap:38px;align-items:center}
+.nav-role{display:block;font-family:var(--ff-sans);font-size:.66rem;font-weight:500;letter-spacing:.04em;color:var(--ink-3)}
+.nav-links{display:flex;gap:34px;align-items:center}
 .nav-links a{font-size:.8rem;font-weight:500;letter-spacing:.04em;color:var(--ink-2);position:relative;padding-bottom:3px;transition:color .3s}
 .nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--accent-hi);transition:width .35s var(--ease-out)}
 .nav-links a:hover{color:var(--ink)}.nav-links a:hover::after{width:100%}
-.nav-cta{background:var(--accent)!important;color:#fff!important;padding:9px 20px;font-size:.76rem!important;letter-spacing:.1em!important;text-transform:uppercase;transition:background .3s!important}
-.nav-cta:hover{background:var(--accent-hi)!important;color:var(--paper)!important}.nav-cta::after{display:none!important}
+.nav-links a.active{color:var(--ink)}.nav-links a.active::after{width:100%}
+.nav-cta{background:var(--accent)!important;color:#fff!important;padding:10px 22px!important;font-size:.76rem!important;letter-spacing:.1em!important;text-transform:uppercase;transition:background .3s,transform .3s,box-shadow .3s!important}
+.nav-cta:hover{background:var(--accent-hi)!important;color:var(--paper)!important;transform:translateY(-2px);box-shadow:0 10px 24px -8px rgba(195,199,207,.4)}.nav-cta::after{display:none!important}
 .nav-ham{display:none;flex-direction:column;gap:5px;width:28px;cursor:pointer}
 .nav-ham span{display:block;width:100%;height:1.5px;background:var(--ink);transition:transform .35s var(--ease-out),opacity .3s}
 #nav-cb{display:none}
@@ -175,15 +180,17 @@ body.ch .cur-dot{transform:translate(-50%,-50%) scale(0)}
 .hl-i{display:inline-flex;align-items:center;justify-content:center;min-width:38px;height:26px;padding:0 8px;border:1px solid var(--line);border-radius:5px;font-family:var(--ff-serif);font-size:.68rem;font-weight:700;letter-spacing:.03em;color:var(--accent-hi);margin-bottom:12px}
 .hl-t{font-size:.82rem;font-weight:700;color:var(--ink);margin-bottom:6px}
 .hl-d{font-size:.77rem;color:var(--ink-3);line-height:1.65}
-.tl-label{font-size:.67rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid var(--line)}
-.tl-item{display:grid;grid-template-columns:88px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid var(--line)}
-.tl-item:last-child{border-bottom:none}
-.tl-y{font-family:var(--ff-serif);font-weight:600;font-size:.75rem;color:var(--ink-3);padding-top:3px}
-.tl-r{font-size:.9rem;font-weight:700;color:var(--ink);margin-bottom:4px}
-.tl-p{font-size:.78rem;color:var(--accent-hi);font-weight:500;margin-bottom:8px}
-.tl-d li{font-size:.78rem;color:var(--ink-3);line-height:1.7;list-style:none;position:relative;padding-left:14px;margin-bottom:5px}
-.tl-d li::before{content:'';position:absolute;left:0;top:.6em;width:4px;height:4px;border-radius:50%;background:var(--accent-hi)}
-.tl-d li:last-child{margin-bottom:0}
+.exp-block{margin-top:80px}
+.tl-label{font-size:.67rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3);margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.exp-card{border:1px solid var(--line);border-radius:14px;padding:28px 26px;background:var(--glass);transition:border-color .35s var(--ease-out),box-shadow .35s var(--ease-out),background .35s var(--ease-out)}
+.exp-card:hover{border-color:rgba(195,199,207,.4);box-shadow:0 26px 60px -28px rgba(195,199,207,.32);background:var(--paper-3)}
+.exp-date{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);border:1px solid var(--line);padding:5px 12px;border-radius:100px;margin-bottom:18px}
+.exp-role{font-family:var(--ff-serif);font-weight:700;font-size:1.05rem;color:var(--ink);margin-bottom:4px}
+.exp-co{font-size:.8rem;color:var(--accent-hi);font-weight:500;margin-bottom:18px}
+.exp-bul li{font-size:.78rem;color:var(--ink-3);line-height:1.7;list-style:none;position:relative;padding-left:14px;margin-bottom:8px}
+.exp-bul li::before{content:'';position:absolute;left:0;top:.6em;width:4px;height:4px;border-radius:50%;background:var(--accent-hi)}
+.exp-bul li:last-child{margin-bottom:0}
 
 /* ============================================= SKILLS (accordion) */
 #skills{padding:var(--gap) 0;background:var(--paper-2);position:relative;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -246,7 +253,8 @@ body.ch .cur-dot{transform:translate(-50%,-50%) scale(0)}
 
 /* ============================================= SERVICES (pinned scroll) */
 #services{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.svc-intro{padding:var(--gap) 0 60px;max-width:600px}
+.svc-intro{padding:var(--gap) 0 60px}
+.svc-intro p{max-width:560px}
 .svc-h{font-size:clamp(2rem,4vw,3rem);margin:18px 0 16px}
 .svc-pin-outer{position:relative}
 .svc-pin-inner{position:sticky;top:0;height:100svh;display:flex;align-items:center;overflow:hidden}
@@ -311,18 +319,25 @@ body.ch .cur-dot{transform:translate(-50%,-50%) scale(0)}
 .fg textarea{min-height:138px}
 
 /* ============================================= FOOTER */
-footer{background:#050506;border-top:1px solid var(--line);padding:26px 0}
-.ft-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
-.ft-logo{font-family:var(--ff-serif);font-size:1.25rem;font-weight:600;color:var(--ink)}
+footer{background:#050506;border-top:1px solid var(--line);padding-top:70px}
+.ft-top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:60px;padding-bottom:48px}
+.ft-logo{font-family:var(--ff-serif);font-size:1.35rem;font-weight:700;color:var(--ink);margin-bottom:16px}
 .ft-logo span{color:var(--accent-hi)}
+.ft-tag{font-size:.85rem;line-height:1.8;color:var(--ink-3);max-width:320px;margin-bottom:24px}
+.ft-soc{display:flex;gap:9px}
+.ft-col-h{font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:20px}
+.ft-col{display:flex;flex-direction:column;gap:13px}
+.ft-col a,.ft-plain{font-size:.85rem;color:var(--ink-2);transition:color .25s}
+.ft-col a:hover{color:var(--accent-hi)}
+.ft-plain{color:var(--ink-3)}
+.ft-bottom{display:flex;align-items:center;justify-content:space-between;padding:24px 0;border-top:1px solid var(--line);flex-wrap:wrap;gap:12px}
 .ft-copy{font-size:.72rem;color:var(--ink-3);letter-spacing:.05em}
-.ft-nav{display:flex;gap:22px}
-.ft-nav a{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);transition:color .2s}
-.ft-nav a:hover{color:var(--accent-hi)}
+.ft-made{font-size:.72rem;color:var(--ink-3);letter-spacing:.05em}
 
 /* ============================================= RESPONSIVE */
 @media(max-width:1024px){
   .about-grid{grid-template-columns:1fr;gap:56px}
+  .exp-grid{grid-template-columns:1fr}
   .ts-row{grid-template-columns:1fr 1fr}
   .ct-layout{grid-template-columns:1fr;gap:48px}
   .svc-pin-grid{grid-template-columns:1fr;gap:36px}
@@ -337,8 +352,12 @@ footer{background:#050506;border-top:1px solid var(--line);padding:26px 0}
   .fr2{grid-template-columns:1fr}
   .h-stats{flex-wrap:wrap}
   .h-stat{min-width:130px}
-  .ft-row{flex-direction:column;text-align:center}
-  .ft-nav{justify-content:center;flex-wrap:wrap}
+  .nav-role{display:none}
+  .ft-top{grid-template-columns:1fr;gap:36px;text-align:center}
+  .ft-tag{margin-left:auto;margin-right:auto}
+  .ft-soc{justify-content:center}
+  .ft-col{align-items:center}
+  .ft-bottom{flex-direction:column;text-align:center}
   .scroll-cue,.cur-dot,.cur-ring{display:none}
   body{cursor:auto}
   .btn,button,a{cursor:pointer}
@@ -376,8 +395,14 @@ footer{background:#050506;border-top:1px solid var(--line);padding:26px 0}
     <input type="checkbox" id="nav-cb"/>
     <div class="nav-in">
       <a href="#" class="nav-brand">
-        <img src="https://raw.githubusercontent.com/AdilIshtiaq/adilishtiaq.github.io/main/adil.jpg" alt="Adil Ishtiaq" class="nav-avatar">
-        <span class="nav-logo">Adil <em>Ishtiaq</em></span>
+        <span class="nav-avatar-wrap">
+          <img src="https://raw.githubusercontent.com/AdilIshtiaq/adilishtiaq.github.io/main/adil.jpg" alt="Adil Ishtiaq" class="nav-avatar">
+          <span class="nav-avatar-dot" title="Available for new projects"></span>
+        </span>
+        <span>
+          <span class="nav-logo">Adil <em>Ishtiaq</em></span>
+          <span class="nav-role">Full-Stack Developer</span>
+        </span>
       </a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
@@ -499,43 +524,40 @@ footer{background:#050506;border-top:1px solid var(--line);padding:26px 0}
           <div class="hl tilt"><div class="hl-i">API</div><div class="hl-t">Backend &amp; Integrations</div><div class="hl-d">REST API design and third-party integrations connecting frontend to real data.</div></div>
           <div class="hl tilt"><div class="hl-i">AI</div><div class="hl-t">AI-Assisted Workflow</div><div class="hl-d">Automation and AI-assisted tooling used deliberately to ship faster without cutting corners.</div></div>
         </div>
-        <div data-r data-d="3">
-          <div class="tl-label">Experience</div>
-          <div class="tl-item">
-            <div class="tl-y">Dec 2025–Now</div>
-            <div>
-              <div class="tl-r">Full-Stack Developer</div>
-              <div class="tl-p">Echooo</div>
-              <ul class="tl-d">
-                <li>Develop full-stack web applications using FastAPI, Next.js, and Python, including REST APIs and backend services.</li>
-                <li>Build responsive, interactive frontend interfaces and integrate external APIs, authentication, and data workflows.</li>
-                <li>Debug, test, and optimize applications using Git, GitHub, and AI-assisted development tools.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-y">Aug 2024–Nov 2025</div>
-            <div>
-              <div class="tl-r">WordPress Developer</div>
-              <div class="tl-p">Ifex</div>
-              <ul class="tl-d">
-                <li>Developed and maintained responsive WordPress websites, customizing themes, plugins, and layouts to meet project needs.</li>
-                <li>Diagnosed and resolved WordPress, plugin, and theme issues while improving performance, SEO, and security.</li>
-                <li>Managed website updates, backups, and content to ensure reliable, up-to-date deployments.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-y">2024–Now</div>
-            <div>
-              <div class="tl-r">Freelance WordPress &amp; Web Developer</div>
-              <div class="tl-p">Self-Employed</div>
-              <ul class="tl-d">
-                <li>Design and build responsive WordPress and modern web projects, customizing themes, plugins, and components.</li>
-                <li>Collaborate directly with clients to translate requirements into functional, high-performing websites.</li>
-              </ul>
-            </div>
-          </div>
+      </div>
+    </div>
+
+    <div class="exp-block">
+      <div class="tl-label reveal" data-r>Experience</div>
+      <div class="exp-grid">
+        <div class="exp-card tilt reveal" data-r>
+          <span class="exp-date">Dec 2025 – Now</span>
+          <div class="exp-role">Full-Stack Developer</div>
+          <div class="exp-co">Echooo</div>
+          <ul class="exp-bul">
+            <li>Develop full-stack web applications using FastAPI, Next.js, and Python, including REST APIs and backend services.</li>
+            <li>Build responsive, interactive frontend interfaces and integrate external APIs, authentication, and data workflows.</li>
+            <li>Debug, test, and optimize applications using Git, GitHub, and AI-assisted development tools.</li>
+          </ul>
+        </div>
+        <div class="exp-card tilt reveal" data-r data-d="1">
+          <span class="exp-date">Aug 2024 – Nov 2025</span>
+          <div class="exp-role">WordPress Developer</div>
+          <div class="exp-co">Ifex</div>
+          <ul class="exp-bul">
+            <li>Developed and maintained responsive WordPress websites, customizing themes, plugins, and layouts to meet project needs.</li>
+            <li>Diagnosed and resolved WordPress, plugin, and theme issues while improving performance, SEO, and security.</li>
+            <li>Managed website updates, backups, and content to ensure reliable, up-to-date deployments.</li>
+          </ul>
+        </div>
+        <div class="exp-card tilt reveal" data-r data-d="2">
+          <span class="exp-date">2024 – Now</span>
+          <div class="exp-role">Freelance WordPress &amp; Web Developer</div>
+          <div class="exp-co">Self-Employed</div>
+          <ul class="exp-bul">
+            <li>Design and build responsive WordPress and modern web projects, customizing themes, plugins, and components.</li>
+            <li>Collaborate directly with clients to translate requirements into functional, high-performing websites.</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -1027,15 +1049,35 @@ footer{background:#050506;border-top:1px solid var(--line);padding:26px 0}
 
 <!-- FOOTER -->
 <footer>
-  <div class="wrap ft-row">
-    <div class="ft-logo">Adil <span>Ishtiaq</span></div>
-    <div class="ft-copy" id="ftYear">© 2026 Adil Ishtiaq · All rights reserved · Lahore, Pakistan</div>
-    <nav class="ft-nav">
+  <div class="wrap ft-top">
+    <div>
+      <div class="ft-logo">Adil <span>Ishtiaq</span></div>
+      <p class="ft-tag">Full-Stack Developer &amp; WordPress Specialist, building considered web applications and websites from Lahore, Pakistan.</p>
+      <div class="soc-row ft-soc">
+        <a href="https://www.linkedin.com/in/adil-ishtiaq-651287327" class="sob" aria-label="LinkedIn">Li</a>
+        <a href="https://wa.me/message/2MT2JFO63P3LA1" class="sob" aria-label="WhatsApp">WA</a>
+        <a href="https://github.com/AdilIshtiaq" class="sob" aria-label="GitHub">Gh</a>
+        <a href="https://www.instagram.com/ad1l_x_?igsh=MTVwOHNoNGptMGM0bg==" class="sob" aria-label="Instagram">Ig</a>
+      </div>
+    </div>
+    <div class="ft-col">
+      <div class="ft-col-h">Navigate</div>
       <a href="#about">About</a>
-      <a href="#portfolio">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#portfolio">Portfolio</a>
       <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </nav>
+      <a href="#testimonials">Reviews</a>
+    </div>
+    <div class="ft-col">
+      <div class="ft-col-h">Get in Touch</div>
+      <a href="mailto:adilishtiaq8040@gmail.com">adilishtiaq8040@gmail.com</a>
+      <a href="https://wa.me/message/2MT2JFO63P3LA1">+92 301 1301709</a>
+      <span class="ft-plain">Lahore, Punjab, Pakistan</span>
+    </div>
+  </div>
+  <div class="wrap ft-bottom">
+    <div class="ft-copy" id="ftYear">© 2026 Adil Ishtiaq · All rights reserved · Lahore, Pakistan</div>
+    <div class="ft-made">Built with care in Lahore.</div>
   </div>
 </footer>
 
@@ -1056,6 +1098,18 @@ document.querySelectorAll('a,button,label,.pc,.si,.tc,.hl,.sk-row').forEach(el=>
 /* ----- Nav scroll shadow ----- */
 const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('sc',scrollY>40),{passive:true});
+
+/* ----- Nav active-section spy ----- */
+const spyLinks = [...document.querySelectorAll('.nav-links a[href^="#"]:not(.nav-cta)')];
+const spySections = spyLinks.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+function updateSpy(){
+  let idx = 0;
+  const y = window.scrollY + 160;
+  spySections.forEach((s,i)=>{ if (s.offsetTop <= y) idx = i; });
+  spyLinks.forEach((a,i)=> a.classList.toggle('active', i===idx));
+}
+window.addEventListener('scroll', ()=>requestAnimationFrame(updateSpy), {passive:true});
+updateSpy();
 
 /* ----- Reveal on scroll ----- */
 const obs=new IntersectionObserver(entries=>{
