@@ -280,6 +280,18 @@ body.ch .cur-dot{transform:translate(-50%,-50%) scale(0)}
 .svc-panel-label{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
 .svc-panel-name{font-size:.82rem;font-weight:600;color:var(--ink);transition:opacity .28s var(--ease-out)}
 .svc-panel-name.fading{opacity:0}
+.svc-mobile-list{display:none}
+.svm-card{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--glass);margin-bottom:22px}
+.svm-card:last-child{margin-bottom:0}
+.svm-art{aspect-ratio:16/10;position:relative;overflow:hidden;background:linear-gradient(160deg,var(--paper-3),var(--paper-2))}
+.svm-art::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,6,.05),rgba(5,5,6,.6) 88%)}
+.svm-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.svm-glyph{position:absolute;bottom:14px;left:16px;z-index:1;font-family:var(--ff-serif);font-weight:700;font-size:.9rem;color:var(--ink);background:rgba(5,5,6,.55);border:1px solid var(--line);padding:5px 12px;border-radius:100px}
+.svm-body{padding:24px 22px}
+.svm-idx{font-family:var(--ff-serif);font-size:.75rem;font-weight:600;color:var(--accent-hi);border:1px solid var(--line);width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.svm-title{font-family:var(--ff-serif);font-weight:700;font-size:1.3rem;color:var(--ink);margin-bottom:12px}
+.svm-desc{font-size:.88rem;line-height:1.75;color:var(--ink-3);margin-bottom:18px}
+.svm-tags{display:flex;gap:7px;flex-wrap:wrap}
 
 /* ============================================= TESTIMONIALS */
 #testimonials{padding:var(--gap) 0}
@@ -349,9 +361,8 @@ footer{background:#050506;border-top:1px solid var(--line);padding-top:70px;posi
   .exp-grid{grid-template-columns:1fr}
   .ts-row{grid-template-columns:1fr 1fr}
   .ct-layout{grid-template-columns:1fr;gap:48px}
-  .svc-pin-grid{grid-template-columns:1fr;gap:36px}
-  .svc-pin-inner{height:auto;position:relative;padding:80px 0}
-  .svc-pin-outer{height:auto!important}
+  .svc-pin-outer{display:none!important}
+  .svc-mobile-list{display:block;padding-bottom:var(--gap)}
 }
 @media(max-width:768px){
   :root{--gap:80px}
@@ -371,9 +382,9 @@ footer{background:#050506;border-top:1px solid var(--line);padding-top:70px;posi
   body{cursor:auto}
   .btn,button,a{cursor:pointer}
   .tilt{transform:none!important}
-  .crsl-track{animation:none!important;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .crsl-track{animation:none!important}
   .crsl-track .dup{display:none}
-  .crsl-row{-webkit-mask-image:none;mask-image:none}
+  .crsl-row{overflow-x:auto;-webkit-overflow-scrolling:touch;-webkit-mask-image:none;mask-image:none}
 }
 @media(max-width:480px){
   .hero-acts{flex-direction:column}
@@ -800,7 +811,7 @@ footer{background:#050506;border-top:1px solid var(--line);padding-top:70px;posi
       <!-- Legacy: Figma to Elementor -->
       <div class="pc pc-legacy tilt">
         <div class="pc-mock shot">
-          <img src="Custom Elementor websites built from Figma.jpg" alt="Custom Elementor website built from a Figma design" loading="lazy">
+          <img src="legacy-figma-elementor.jpg" alt="Custom Elementor website built from a Figma design" loading="lazy">
           <span class="pc-tag-fl muted">Case Study</span>
         </div>
         <div class="pc-body">
@@ -813,7 +824,7 @@ footer{background:#050506;border-top:1px solid var(--line);padding-top:70px;posi
       <!-- Legacy: IT & Software -->
       <div class="pc pc-legacy tilt">
         <div class="pc-mock shot">
-          <img src="ElementorWordPress Site for Professional IT & Software Company.png" alt="Elementor WordPress site for a professional IT and software company" loading="lazy">
+          <img src="legacy-it-software.jpg" alt="Elementor WordPress site for a professional IT and software company" loading="lazy">
           <span class="pc-tag-fl muted">Case Study</span>
         </div>
         <div class="pc-body">
@@ -826,7 +837,7 @@ footer{background:#050506;border-top:1px solid var(--line);padding-top:70px;posi
       <!-- Legacy: Roofing -->
       <div class="pc pc-legacy tilt">
         <div class="pc-mock shot">
-          <img src="Highly Responsive WordPress  Elementor Site for a Roofing Company.jpg" alt="Responsive WordPress Elementor site for a roofing company" loading="lazy">
+          <img src="legacy-roofing.jpg" alt="Responsive WordPress Elementor site for a roofing company" loading="lazy">
           <span class="pc-tag-fl muted">Case Study</span>
         </div>
         <div class="pc-body">
@@ -839,7 +850,7 @@ footer{background:#050506;border-top:1px solid var(--line);padding-top:70px;posi
       <!-- Legacy: Tax & Advisory -->
       <div class="pc pc-legacy tilt">
         <div class="pc-mock shot">
-          <img src="Highly Responsive WordPress Website for a Tax and Advisory Firm.png" alt="Responsive WordPress website for a tax and advisory firm" loading="lazy">
+          <img src="legacy-tax-advisory.jpg" alt="Responsive WordPress website for a tax and advisory firm" loading="lazy">
           <span class="pc-tag-fl muted">Case Study</span>
         </div>
         <div class="pc-body">
@@ -865,7 +876,7 @@ footer{background:#050506;border-top:1px solid var(--line);padding-top:70px;posi
       </a>
       <div class="pc pc-legacy tilt dup">
         <div class="pc-mock shot">
-          <img src="Custom Elementor websites built from Figma.jpg" alt="" loading="lazy">
+          <img src="legacy-figma-elementor.jpg" alt="" loading="lazy">
           <span class="pc-tag-fl muted">Case Study</span>
         </div>
         <div class="pc-body">
@@ -877,7 +888,7 @@ footer{background:#050506;border-top:1px solid var(--line);padding-top:70px;posi
       </div>
       <div class="pc pc-legacy tilt dup">
         <div class="pc-mock shot">
-          <img src="ElementorWordPress Site for Professional IT & Software Company.png" alt="" loading="lazy">
+          <img src="legacy-it-software.jpg" alt="" loading="lazy">
           <span class="pc-tag-fl muted">Case Study</span>
         </div>
         <div class="pc-body">
@@ -889,7 +900,7 @@ footer{background:#050506;border-top:1px solid var(--line);padding-top:70px;posi
       </div>
       <div class="pc pc-legacy tilt dup">
         <div class="pc-mock shot">
-          <img src="Highly Responsive WordPress  Elementor Site for a Roofing Company.jpg" alt="" loading="lazy">
+          <img src="legacy-roofing.jpg" alt="" loading="lazy">
           <span class="pc-tag-fl muted">Case Study</span>
         </div>
         <div class="pc-body">
@@ -901,7 +912,7 @@ footer{background:#050506;border-top:1px solid var(--line);padding-top:70px;posi
       </div>
       <div class="pc pc-legacy tilt dup">
         <div class="pc-mock shot">
-          <img src="Highly Responsive WordPress Website for a Tax and Advisory Firm.png" alt="" loading="lazy">
+          <img src="legacy-tax-advisory.jpg" alt="" loading="lazy">
           <span class="pc-tag-fl muted">Case Study</span>
         </div>
         <div class="pc-body">
@@ -951,6 +962,7 @@ footer{background:#050506;border-top:1px solid var(--line);padding-top:70px;posi
       </div>
     </div>
   </div>
+  <div class="wrap svc-mobile-list" id="svcMobileList"></div>
 </section>
 
 <!-- TESTIMONIALS -->
@@ -1211,6 +1223,26 @@ const SERVICES = [
   {title:'Website Redesign & Optimization', desc:'Modernize an outdated site without losing what already works — audited first, then rebuilt on a faster, cleaner foundation.', tags:['Performance','SEO','UX'], glyph:'RX', img:'svc-redesign.jpg'},
   {title:'Automation & AI-Assisted Development', desc:'AI-assisted workflows and automation used deliberately — to ship faster without cutting corners on quality or review.', tags:['Automation','Claude Code','Git'], glyph:'AI', img:'svc-automation.jpg'}
 ];
+
+/* ----- Mobile fallback: render every service as a static stacked card ----- */
+const svcMobileList = document.getElementById('svcMobileList');
+if (svcMobileList) {
+  svcMobileList.innerHTML = SERVICES.map((s,i)=>`
+    <div class="svm-card">
+      <div class="svm-art">
+        <img src="${s.img}" alt="${s.title} — system preview" loading="lazy">
+        <span class="svm-glyph">${s.glyph}</span>
+      </div>
+      <div class="svm-body">
+        <div class="svm-idx">${String(i+1).padStart(2,'0')}</div>
+        <h3 class="svm-title">${s.title}</h3>
+        <p class="svm-desc">${s.desc}</p>
+        <div class="svm-tags">${s.tags.map(t=>`<span class="stag">${t}</span>`).join('')}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
 const svcPinOuter = document.getElementById('svcPinOuter');
 if (svcPinOuter) {
   svcPinOuter.style.height = (SERVICES.length * 100) + 'vh';
