@@ -7,6 +7,7 @@
 <meta name="description" content="Adil Ishtiaq — Full-Stack Developer (Next.js, FastAPI, Python) and WordPress specialist based in Lahore, Pakistan. Building considered web applications and websites for founders, agencies, and teams."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<script>document.documentElement.classList.add('js')</script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 /* ============================================= TOKENS — space grey */
@@ -52,11 +53,16 @@ body.ch .cur-ring{width:58px;height:58px;border-color:var(--accent-hi);opacity:.
 body.ch .cur-dot{transform:translate(-50%,-50%) scale(0)}
 
 /* ============================================= REVEAL / TILT */
-[data-r]{opacity:0;transform:translateY(32px);transition:opacity .9s var(--ease-out),transform .7s var(--ease-out)}
-[data-r].in{opacity:1;transform:none}
-[data-r][data-d="1"]{transition-delay:.1s}[data-r][data-d="2"]{transition-delay:.2s}
-[data-r][data-d="3"]{transition-delay:.3s}[data-r][data-d="4"]{transition-delay:.4s}
-[data-r][data-d="5"]{transition-delay:.5s}
+/* GSAP drives reveals; .no-gsap is the CSS fallback when the libraries fail to load or motion is reduced */
+.js [data-r]{opacity:0}
+.no-gsap [data-r]{transform:translateY(32px);transition:opacity .9s var(--ease-out),transform .7s var(--ease-out)}
+.no-gsap [data-r].in{opacity:1;transform:none}
+.no-gsap [data-r][data-d="1"]{transition-delay:.1s}.no-gsap [data-r][data-d="2"]{transition-delay:.2s}
+.no-gsap [data-r][data-d="3"]{transition-delay:.3s}.no-gsap [data-r][data-d="4"]{transition-delay:.4s}
+.no-gsap [data-r][data-d="5"]{transition-delay:.5s}
+html.gsap-on{scroll-behavior:auto}
+.scroll-prog{position:fixed;top:0;left:0;right:0;height:2px;z-index:600;background:linear-gradient(90deg,var(--accent),var(--accent-hi),#fff);transform:scaleX(0);transform-origin:0 50%;pointer-events:none}
+.split-line{padding-bottom:.08em}
 .tilt{transform-style:preserve-3d;will-change:transform}
 
 /* ============================================= UTILS */
@@ -119,6 +125,8 @@ body.ch .cur-dot{transform:translate(-50%,-50%) scale(0)}
 .hero-bg-fade{position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 70% 60% at 50% 42%,rgba(10,11,13,.1),var(--paper) 82%),linear-gradient(rgba(10,11,13,.25),var(--paper) 96%)}
 
 /* Globe + software motion graphic */
+#heroGL{position:absolute;inset:0;width:100%;height:100%;display:block}
+.gl-on .globe{display:none}
 .globe-scene{position:absolute;top:48%;left:50%;width:min(680px,90vw);height:min(680px,90vw);transform:translate(-50%,-50%);perspective:1300px}
 .globe{position:relative;width:100%;height:100%;transform-style:preserve-3d;animation:globeSpin 30s linear infinite}
 @keyframes globeSpin{from{transform:rotateX(10deg) rotateY(0deg)}to{transform:rotateX(10deg) rotateY(360deg)}}
@@ -138,12 +146,13 @@ body.ch .cur-dot{transform:translate(-50%,-50%) scale(0)}
 @keyframes chipFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
 
 .hero-main{position:relative;z-index:2;padding:70px 0 40px}
-.hero-center{max-width:920px;margin:0 auto;text-align:center;transform-style:preserve-3d;transition:transform .35s var(--ease-out)}
+.hero-center{max-width:920px;margin:0 auto;text-align:center;transform-style:preserve-3d}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--glass);border:1px solid var(--line);border-radius:100px;padding:6px 16px 6px 10px;font-size:.78rem;font-weight:500;color:var(--ink-3);margin-bottom:30px}
 .h-dot{width:8px;height:8px;border-radius:50%;background:var(--accent-hi);animation:hpulse 2s infinite}
 @keyframes hpulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
 .hero-name{font-family:var(--ff-serif);font-weight:700;font-size:clamp(3.1rem,8.5vw,6.6rem);line-height:.98;letter-spacing:-.02em;margin-bottom:20px;color:var(--ink)}
-.hero-name em{font-style:normal;background:linear-gradient(120deg,var(--accent-hi),#eef0f2);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-name em,.hero-name em .ch{font-style:normal;background:linear-gradient(120deg,var(--accent-hi),#eef0f2);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-name .ch{display:inline-block;will-change:transform}
 .hero-role{font-family:var(--ff-serif);font-weight:500;font-size:clamp(1.1rem,2.4vw,1.5rem);color:var(--ink-2);margin-bottom:24px}
 .hero-sub{font-size:1.03rem;line-height:1.9;color:var(--ink-3);max-width:580px;margin:0 auto 40px}
 .hero-acts{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
@@ -264,7 +273,8 @@ body.ch .cur-dot{transform:translate(-50%,-50%) scale(0)}
 .svc-progress-bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-hi));width:0%}
 .svc-tags{display:flex;gap:8px;flex-wrap:wrap}
 .stag{font-size:.68rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:6px 13px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--ink-2);border-radius:100px}
-.svc-panel{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#050506;box-shadow:0 40px 90px -30px rgba(0,0,0,.6)}
+.svc-right{transform-style:preserve-3d}
+.svc-panel{will-change:transform;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#050506;box-shadow:0 40px 90px -30px rgba(0,0,0,.6)}
 .svc-panel-art{aspect-ratio:4/3;position:relative;overflow:hidden;background:linear-gradient(160deg,var(--paper-3),var(--paper-2))}
 .svc-panel-art::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,6,.05),rgba(5,5,6,.6) 88%)}
 .svc-panel-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .35s var(--ease-out)}
@@ -398,6 +408,7 @@ footer{background:#050506;border-top:1px solid var(--line);padding-top:70px;posi
   <div class="orb orb-2"></div>
 </div>
 
+<div class="scroll-prog" id="scrollProg" aria-hidden="true"></div>
 <div class="cur-dot" id="cd"></div>
 <div class="cur-ring" id="cr"></div>
 
@@ -442,6 +453,7 @@ footer{background:#050506;border-top:1px solid var(--line);padding-top:70px;posi
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg-wrap" id="heroBgWrap">
+    <canvas id="heroGL" aria-hidden="true"></canvas>
     <div class="globe-scene" aria-hidden="true">
       <div class="globe">
         <div class="globe-ring gr1"></div>
@@ -1124,6 +1136,10 @@ footer{background:#050506;border-top:1px solid var(--line);padding-top:70px;posi
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/motion@11.18.2/dist/motion.js"></script>
 <script>
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const canTilt = window.matchMedia('(hover:hover) and (pointer:fine)').matches && !reduced;
@@ -1154,11 +1170,19 @@ function updateSpy(){
 window.addEventListener('scroll', ()=>requestAnimationFrame(updateSpy), {passive:true});
 updateSpy();
 
-/* ----- Reveal on scroll ----- */
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}});
-},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
-document.querySelectorAll('[data-r]').forEach(el=>obs.observe(el));
+/* ----- Libraries: GSAP (+ScrollTrigger, SplitText) and Motion load from the CDN; fall back gracefully if they don't ----- */
+const M = window.Motion;
+const hasGSAP = !reduced && !!(window.gsap && window.ScrollTrigger);
+const root = document.documentElement;
+
+function revealFallback(){
+  root.classList.remove('gsap-on');
+  root.classList.add('no-gsap');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}});
+  },{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('[data-r]').forEach(el=>obs.observe(el));
+}
 
 /* ----- Smooth hash links ----- */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
@@ -1168,16 +1192,35 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   });
 });
 
-/* ----- 3D tilt on hover ----- */
+/* ----- Spring-physics helper (Motion), with a plain style fallback ----- */
+const SPRING = {type:'spring', stiffness:220, damping:18, mass:.6};
+function spring(el, props, opts){
+  if (M && M.animate) return M.animate(el, props, Object.assign({}, SPRING, opts));
+  const t = [];
+  if (props.x!=null||props.y!=null) t.push(`translate(${props.x||0}px,${props.y||0}px)`);
+  if (props.rotateX!=null) t.push(`perspective(${props.transformPerspective||900}px) rotateX(${props.rotateX}deg) rotateY(${props.rotateY||0}deg)`);
+  el.style.transform = t.join(' ');
+}
+
+/* ----- 3D spring tilt on hover ----- */
 if (canTilt) {
   document.querySelectorAll('.tilt').forEach(el=>{
     el.addEventListener('mousemove', e=>{
       const r = el.getBoundingClientRect();
       const px = (e.clientX - r.left)/r.width - .5;
       const py = (e.clientY - r.top)/r.height - .5;
-      el.style.transform = `perspective(900px) rotateY(${px*12}deg) rotateX(${-py*12}deg) translateZ(6px)`;
+      spring(el, {transformPerspective:900, rotateY:px*14, rotateX:-py*14, z:10});
     });
-    el.addEventListener('mouseleave', ()=>{ el.style.transform=''; });
+    el.addEventListener('mouseleave', ()=> spring(el, {transformPerspective:900, rotateY:0, rotateX:0, z:0}, {stiffness:140, damping:14}));
+  });
+
+  /* Magnetic buttons */
+  document.querySelectorAll('.btn, .nav-cta, .sob').forEach(el=>{
+    el.addEventListener('mousemove', e=>{
+      const r = el.getBoundingClientRect();
+      spring(el, {x:(e.clientX-r.left-r.width/2)*.3, y:(e.clientY-r.top-r.height/2)*.4}, {stiffness:300, damping:16});
+    });
+    el.addEventListener('mouseleave', ()=> spring(el, {x:0, y:0}, {stiffness:180, damping:10}));
   });
 }
 
@@ -1190,15 +1233,127 @@ if (canTilt && heroEl) {
     const r = heroEl.getBoundingClientRect();
     const px = (e.clientX - r.left)/r.width - .5;
     const py = (e.clientY - r.top)/r.height - .5;
-    heroBgWrap.style.transform = `translate(${px*-24}px, ${py*-18}px)`;
-    heroCenter.style.transform = `perspective(1000px) rotateY(${px*-3}deg) rotateX(${py*3}deg)`;
+    spring(heroBgWrap, {x:px*-30, y:py*-22}, {stiffness:60, damping:16});
+    spring(heroCenter, {transformPerspective:1000, rotateY:px*-5, rotateX:py*5}, {stiffness:80, damping:14});
   });
   heroEl.addEventListener('mouseleave', ()=>{
-    heroBgWrap.style.transform = '';
-    heroCenter.style.transform = '';
+    spring(heroBgWrap, {x:0, y:0}, {stiffness:60, damping:16});
+    spring(heroCenter, {transformPerspective:1000, rotateY:0, rotateX:0}, {stiffness:80, damping:14});
   });
 } else if (heroBgWrap) {
   heroBgWrap.classList.add('drift');
+}
+
+/* ----- GSAP: 3D intro, scroll-driven reveals and scrubbed motion ----- */
+function initGSAP(){
+  gsap.registerPlugin(ScrollTrigger);
+  const canSplit = !!window.SplitText;
+  if (canSplit) gsap.registerPlugin(SplitText);
+  root.classList.add('gsap-on');
+  const P = 1000;
+
+  /* Page progress bar */
+  gsap.to('#scrollProg', {scaleX:1, ease:'none', scrollTrigger:{trigger:document.body, start:'top top', end:'bottom bottom', scrub:.3}});
+
+  /* Hero intro timeline */
+  const heroName = document.querySelector('.hero-name');
+  const heroItems = [...document.querySelectorAll('#hero [data-r]')].filter(el=>el!==heroName);
+  const tl = gsap.timeline({defaults:{ease:'expo.out'}, delay:.15});
+  gsap.set(heroName, {opacity:1});
+  if (canSplit) {
+    const split = SplitText.create(heroName, {type:'chars', charsClass:'ch'});
+    tl.from(split.chars, {yPercent:120, rotateX:-95, opacity:0, z:-120, transformPerspective:P, transformOrigin:'50% 50% -30px', duration:1.4, stagger:.045});
+  } else {
+    tl.from(heroName, {y:60, rotateX:-40, opacity:0, transformPerspective:P, duration:1.2});
+  }
+  tl.fromTo(heroItems, {opacity:0, y:50, rotateX:-35, transformPerspective:P, transformOrigin:'50% 100%'},
+                       {opacity:1, y:0, rotateX:0, duration:1.1, stagger:.09, clearProps:'transform'}, '-=1.0')
+    .from('.chip', {scale:0, opacity:0, duration:.9, stagger:.08, ease:'back.out(2)'}, '-=1.0');
+
+  /* Stat counters (all count up together) */
+  tl.addLabel('stats', '-=1.2');
+  document.querySelectorAll('.hs-n').forEach(el=>{
+    const m = el.textContent.match(/^(\d+)(.*)$/);
+    if (!m) return;
+    const o = {v:0}, end = +m[1], suffix = m[2];
+    el.textContent = '0' + suffix;
+    tl.to(o, {v:end, duration:1.8, ease:'power2.out', onUpdate:()=>{ el.textContent = Math.round(o.v) + suffix; }}, 'stats');
+  });
+
+  /* Hero content recedes into depth as you scroll away */
+  gsap.to('.hero-main', {yPercent:-18, z:-240, rotateX:18, opacity:0, transformPerspective:1200, transformOrigin:'50% 0%', ease:'none',
+    scrollTrigger:{trigger:'#hero', start:'top top', end:'bottom top', scrub:true}});
+  gsap.to('.scroll-cue', {opacity:0, scrollTrigger:{trigger:'#hero', start:'top top', end:'15% top', scrub:true}});
+
+  /* Section headings: word-by-word 3D flip, masked per line */
+  const headings = [...document.querySelectorAll('.display[data-r]')].filter(el=>!el.closest('#hero'));
+  headings.forEach(h=>{
+    gsap.set(h, {opacity:1});
+    const targets = canSplit ? SplitText.create(h, {type:'lines,words', mask:'lines', linesClass:'split-line'}).words : [h];
+    gsap.from(targets, {yPercent:110, rotateX:-80, opacity:0, transformPerspective:P, transformOrigin:'50% 100%', duration:1.2, stagger:.07, ease:'expo.out',
+      scrollTrigger:{trigger:h, start:'top 88%', once:true}});
+  });
+
+  /* Grouped reveals: children flip in with depth */
+  const groups = [
+    ['.about-highlights', '.hl', {rotateY:-75, z:-200, transformOrigin:'0% 50%'}],
+    ['.sk-acc',           '.sk-row', {x:-90, rotateY:28, z:-120, transformOrigin:'0% 50%'}],
+    ['.ts-row',           '.tc', {y:120, rotateX:-60, z:-160, transformOrigin:'50% 100%'}],
+  ];
+  const grouped = new Set();
+  groups.forEach(([parentSel, childSel, from])=>{
+    document.querySelectorAll(parentSel).forEach(parent=>{
+      grouped.add(parent);
+      gsap.set(parent, {opacity:1});
+      gsap.fromTo(parent.querySelectorAll(childSel), Object.assign({opacity:0, transformPerspective:P}, from),
+        {opacity:1, x:0, y:0, z:0, rotateX:0, rotateY:0, duration:1.2, stagger:{each:.1, from:'start'}, ease:'expo.out', clearProps:'transform',
+         scrollTrigger:{trigger:parent, start:'top 85%', once:true}});
+    });
+  });
+
+  /* Everything else: batched 3D rise */
+  const rest = [...document.querySelectorAll('[data-r]')].filter(el=>!el.closest('#hero') && !headings.includes(el) && !grouped.has(el));
+  ScrollTrigger.batch(rest, {start:'top 90%', once:true, onEnter:batch=>gsap.fromTo(batch,
+    {opacity:0, y:70, z:-100, rotateX:-25, transformPerspective:P, transformOrigin:'50% 100%'},
+    {opacity:1, y:0, z:0, rotateX:0, duration:1.1, stagger:.1, ease:'expo.out', clearProps:'transform'})});
+
+  /* Marquee skews with scroll velocity */
+  const skew = gsap.quickTo('.marquee-band', 'skewY', {duration:.5, ease:'power3'});
+  ScrollTrigger.create({onUpdate:self=>skew(gsap.utils.clamp(-4, 4, self.getVelocity()/-400))});
+
+  /* Portfolio carousels tilt up from a 3D floor */
+  document.querySelectorAll('.crsl-row').forEach((row,i)=>{
+    gsap.fromTo(row, {rotateX:40, z:-260, x:i%2 ? -180 : 180, opacity:.2, transformPerspective:1400, transformOrigin:'50% 100%'},
+      {rotateX:0, z:0, x:0, opacity:1, ease:'none', scrollTrigger:{trigger:row, start:'top bottom', end:'center 65%', scrub:1}});
+  });
+
+  /* Services: panel orbits in 3D across the pinned scroll, ghost word drifts */
+  if (document.getElementById('svcPinOuter')) {
+    gsap.fromTo('.svc-panel', {rotateY:-22, rotateX:10, transformPerspective:1400},
+      {rotateY:22, rotateX:-10, ease:'none', scrollTrigger:{trigger:'#svcPinOuter', start:'top top', end:'bottom bottom', scrub:1}});
+    gsap.fromTo('.svc-ghost', {xPercent:0}, {xPercent:-30, ease:'none', scrollTrigger:{trigger:'#svcPinOuter', start:'top bottom', end:'bottom top', scrub:true}});
+  }
+
+  /* Ghost words and background orbs parallax */
+  gsap.fromTo('.ct-ghost', {xPercent:20}, {xPercent:-10, ease:'none', scrollTrigger:{trigger:'#contact', start:'top bottom', end:'bottom top', scrub:true}});
+  gsap.to('.orb-1', {y:()=>innerHeight*.6, ease:'none', scrollTrigger:{trigger:document.body, start:'top top', end:'bottom bottom', scrub:true}});
+  gsap.to('.orb-2', {y:()=>-innerHeight*.6, ease:'none', scrollTrigger:{trigger:document.body, start:'top top', end:'bottom bottom', scrub:true}});
+}
+
+if (hasGSAP) {
+  /* SplitText measures glyphs, so wait for web fonts (capped so content never stays hidden) */
+  const fontsReady = document.fonts ? Promise.race([document.fonts.ready, new Promise(r=>setTimeout(r,1200))]) : Promise.resolve();
+  fontsReady.then(()=>{
+    try { initGSAP(); }
+    catch (err) {
+      console.error(err);
+      ScrollTrigger.getAll().forEach(t=>t.kill());
+      gsap.set('[data-r], [data-r] *', {clearProps:'all'});
+      revealFallback();
+    }
+  });
+} else {
+  revealFallback();
 }
 
 /* ----- Skills accordion (click toggle for touch; hover handles desktop via CSS) ----- */
@@ -1280,6 +1435,15 @@ if (svcPinOuter) {
       currentIdx = idx;
       if (reduced) {
         renderService(idx);
+      } else if (hasGSAP) {
+        const parts = [svcIdx, svcTitle, svcDesc, svcTagsRow];
+        gsap.timeline({overwrite:true})
+          .to(parts, {opacity:0, y:-30, rotateX:50, transformPerspective:800, duration:.22, stagger:.03, ease:'power2.in'})
+          .to([svcImg, svcGlyph, svcPanelName], {opacity:0, duration:.18}, 0)
+          .add(()=>renderService(idx))
+          .fromTo(parts, {opacity:0, y:30, rotateX:-50}, {opacity:1, y:0, rotateX:0, duration:.6, stagger:.05, ease:'expo.out'})
+          .fromTo(svcImg, {opacity:0, scale:1.2, rotateY:-25, transformPerspective:900}, {opacity:1, scale:1, rotateY:0, duration:.8, ease:'expo.out'}, '<')
+          .to([svcGlyph, svcPanelName], {opacity:1, duration:.4}, '<.1');
       } else {
         svcText.classList.add('fading');
         svcGlyph.classList.add('fading');
@@ -1304,6 +1468,136 @@ if (svcPinOuter) {
 /* ----- Footer year ----- */
 document.getElementById('ftYear').textContent =
   `© ${new Date().getFullYear()} Adil Ishtiaq · All rights reserved · Lahore, Pakistan`;
+</script>
+<!-- Three.js hero: particle globe that assembles on load, follows the mouse and scatters as you scroll -->
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js';
+
+const canvas = document.getElementById('heroGL');
+const hero = document.getElementById('hero');
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let renderer;
+try { renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true, powerPreference:'high-performance'}); }
+catch (e) { renderer = null; }
+
+if (renderer) {
+  document.documentElement.classList.add('gl-on');
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, 1, .1, 100);
+  const world = new THREE.Group();
+  scene.add(world);
+  const small = innerWidth < 768;
+
+  const vert = `
+    attribute vec3 aDir; attribute float aSeed;
+    uniform float uTime, uScatter, uSize, uPR;
+    varying float vA;
+    void main(){
+      vec3 p = position + normalize(position) * sin(uTime*.9 + aSeed*6.2831) * .025;
+      p += aDir * uScatter * (1.5 + aSeed * 2.5);
+      vec4 mv = modelViewMatrix * vec4(p, 1.);
+      gl_Position = projectionMatrix * mv;
+      gl_PointSize = uSize * uPR * (.6 + aSeed * .9) / -mv.z;
+      vA = mix(1., .18, smoothstep(3.6, 6.8, -mv.z));
+    }`;
+  const frag = `
+    uniform vec3 uColor; uniform float uOpacity;
+    varying float vA;
+    void main(){
+      float d = length(gl_PointCoord - .5);
+      if (d > .5) discard;
+      gl_FragColor = vec4(uColor, smoothstep(.5, .0, d) * vA * uOpacity);
+    }`;
+  function pointCloud(positions, size, color, opacity){
+    const n = positions.length / 3, dir = new Float32Array(n*3), seed = new Float32Array(n);
+    for (let i=0;i<n;i++){
+      const v = new THREE.Vector3().randomDirection();
+      dir.set([v.x,v.y,v.z], i*3); seed[i] = Math.random();
+    }
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    g.setAttribute('aDir', new THREE.BufferAttribute(dir, 3));
+    g.setAttribute('aSeed', new THREE.BufferAttribute(seed, 1));
+    const m = new THREE.ShaderMaterial({vertexShader:vert, fragmentShader:frag, transparent:true, depthWrite:false, blending:THREE.AdditiveBlending,
+      uniforms:{uTime:{value:0}, uScatter:{value:1}, uSize:{value:size}, uPR:{value:renderer.getPixelRatio()}, uColor:{value:new THREE.Color(color)}, uOpacity:{value:opacity}}});
+    return new THREE.Points(g, m);
+  }
+
+  /* Fibonacci sphere */
+  const N = small ? 1400 : 2600, R = 1.6, sp = new Float32Array(N*3);
+  for (let i=0;i<N;i++){
+    const y = 1 - (i/(N-1))*2, r = Math.sqrt(1-y*y), th = i * Math.PI * (3 - Math.sqrt(5));
+    sp.set([Math.cos(th)*r*R, y*R, Math.sin(th)*r*R], i*3);
+  }
+  const globe = pointCloud(sp, 34, 0xd5d8de, .95);
+  world.add(globe);
+
+  /* Distant star field */
+  const S = small ? 350 : 700, st = new Float32Array(S*3);
+  for (let i=0;i<S;i++){ const v = new THREE.Vector3().randomDirection().multiplyScalar(4 + Math.random()*6); st.set([v.x,v.y,v.z], i*3); }
+  const stars = pointCloud(st, 22, 0x8b8f97, .7);
+  scene.add(stars);
+
+  /* Wireframe core */
+  const core = new THREE.LineSegments(new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(1.05, 1)),
+    new THREE.LineBasicMaterial({color:0xc3c7cf, transparent:true, opacity:.14}));
+  world.add(core);
+
+  /* Orbit rings with travelling satellites */
+  const orbits = [];
+  [[.35, 0, 2.15], [-.6, .8, 2.45], [1.2, -.4, 2.8]].forEach(([rx, rz, rad], i)=>{
+    const pivot = new THREE.Group(); pivot.rotation.set(rx, 0, rz);
+    const pts = []; for (let a=0;a<=128;a++){ const t = a/128*Math.PI*2; pts.push(new THREE.Vector3(Math.cos(t)*rad, 0, Math.sin(t)*rad)); }
+    pivot.add(new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(pts), new THREE.LineBasicMaterial({color:0xffffff, transparent:true, opacity:.1})));
+    const sat = new THREE.Mesh(new THREE.SphereGeometry(.035, 12, 12), new THREE.MeshBasicMaterial({color:0xffffff}));
+    pivot.add(sat); world.add(pivot);
+    orbits.push({sat, rad, speed:.35 + i*.12, off:i*2.1});
+  });
+
+  function resize(){
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    camera.position.z = camera.aspect < 1 ? 5.4 / Math.max(camera.aspect, .55) : 5.4;
+    camera.updateProjectionMatrix();
+  }
+  resize();
+  addEventListener('resize', resize);
+
+  let mx = 0, my = 0, tx = 0, ty = 0;
+  addEventListener('pointermove', e=>{ tx = e.clientX/innerWidth - .5; ty = e.clientY/innerHeight - .5; }, {passive:true});
+
+  let visible = true;
+  new IntersectionObserver(([e])=>{ visible = e.isIntersecting; }).observe(hero);
+
+  const clock = new THREE.Clock();
+  const easeOut = t => 1 - Math.pow(1 - t, 4);
+  function frame(){
+    const t = clock.getElapsedTime();
+    const intro = reduced ? 1 : easeOut(Math.min(t / 2.6, 1));
+    const r = hero.getBoundingClientRect();
+    const scroll = Math.min(Math.max(-r.top / r.height, 0), 1);
+    mx += (tx - mx) * .05; my += (ty - my) * .05;
+
+    world.rotation.y = t * .12 + mx * .8;
+    world.rotation.x = .18 + my * .5 + scroll * .6;
+    world.scale.setScalar((.6 + intro * .4) * (1 + scroll * .55));
+    world.position.y = .12 + scroll * .6;
+    core.rotation.y = -t * .2; core.rotation.z = t * .08;
+    stars.rotation.y = t * .02 + mx * .15;
+    orbits.forEach(o=>{ const a = t * o.speed + o.off; o.sat.position.set(Math.cos(a)*o.rad, 0, Math.sin(a)*o.rad); });
+
+    globe.material.uniforms.uTime.value = t;
+    globe.material.uniforms.uScatter.value = (1 - intro) * 1.4 + scroll * scroll * 1.8;
+    globe.material.uniforms.uOpacity.value = .95 * (1 - scroll * .6);
+    stars.material.uniforms.uTime.value = t;
+    stars.material.uniforms.uScatter.value = (1 - intro) * .6;
+    renderer.render(scene, camera);
+  }
+  if (reduced) { frame(); addEventListener('resize', frame); }
+  else renderer.setAnimationLoop(()=>{ if (visible && !document.hidden) frame(); });
+}
 </script>
 </body>
 </html>
